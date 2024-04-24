@@ -48,9 +48,9 @@ def login():
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect('/')
-        return render_template('login1.html', message='Неверный логин или пароль',
+        return render_template('login_new.html', message='Неверный логин или пароль',
                                form=form, title='Авторизация')
-    return render_template('login1.html', titlle='Авторизация', form=form)
+    return render_template('login_new.html', title='Авторизация', form=form)
 
 
 @app.route('/')
