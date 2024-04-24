@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <nav class="navbar bg-primary border-bottom border-body" data-bs-theme="dark">
+        <a class="navbar-brand" href="#">Матан</a>
+        {% if current_user.is_authenticated %}
+            <a class="navbar-brand" href="/logout">{{ current_user.name }}</a>
+        {% else %}
+            <p>
+                <a class="btn" href="/register">Регистрация</a>
+                <a class="btn" href="/login">Войти</a>
+            </p>
+        {% endif %}
+    </nav>
+</header>
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+        Задание №1
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          <ul>
+              <li>
+                  ...
+              </li>
+              <li>
+                  ...
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Задание №2
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          <ul>
+              <li>...</li>
+              <li>...</li>
+          </ul>
+      </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Задание №3
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+          <ul>
+              <li>...</li>
+              <li>...</li>
+          </ul>
+      </div>
+  </div>
+</div>
+{% endblock %}
