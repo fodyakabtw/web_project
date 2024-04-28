@@ -58,6 +58,71 @@ def index():
     return render_template('index.html', title='-')
 
 
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
+
+@app.route('/task1')
+def task1():
+    pass
+
+
+@app.route('/task2')
+def task2():
+    pass
+
+
+@app.route('/task3')
+def task3():
+    pass
+
+
+@app.route('/task4')
+def task4():
+    pass
+
+
+@app.route('/task5')
+def task5():
+    pass
+
+
+@app.route('/task6')
+def task6():
+    pass
+
+
+@app.route('/task7')
+def task7():
+    pass
+
+
+@app.route('/task8')
+def task8():
+    pass
+
+
+@app.route('/task9')
+def task9():
+    pass
+
+
+@app.route('/task10')
+def task10():
+    pass
+
+
+@app.route('/task11')
+def task11():
+    pass
+
+
+@app.route('/task12')
+def task12():
+    pass
+
+
 def main():
     db_session.global_init('db/info.db')
     app.run()
