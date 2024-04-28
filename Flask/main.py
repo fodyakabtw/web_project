@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, make_response, session, abort
 from data import db_session
 from data.users import User
+from data.tasks import Tasks
 from forms.user import RegisterForm, LoginForm
 import datetime as dt
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -65,7 +66,9 @@ def profile():
 
 @app.route('/task1')
 def task1():
-    pass
+    db_sess = db_session.create_session()
+    tasks = db_sess.query(Tasks).filter(Tasks.n_t == 1)
+    return render_template('task1.html', title='Геометрия на плоскости', tasks=tasks)
 
 
 @app.route('/task2')
@@ -80,12 +83,16 @@ def task3():
 
 @app.route('/task4')
 def task4():
-    pass
+    db_sess = db_session.create_session()
+    tasks = db_sess.query(Tasks).filter(Tasks.n_t == 4)
+    return render_template('task1.html', title='Введение в теорию вероятностей', tasks=tasks)
 
 
 @app.route('/task5')
 def task5():
-    pass
+    db_sess = db_session.create_session()
+    tasks = db_sess.query(Tasks).filter(Tasks.n_t == 5)
+    return render_template('task1.html', title='Задачи на теорию вероятностей', tasks=tasks)
 
 
 @app.route('/task6')
@@ -110,7 +117,9 @@ def task9():
 
 @app.route('/task10')
 def task10():
-    pass
+    db_sess = db_session.create_session()
+    tasks = db_sess.query(Tasks).filter(Tasks.n_t == 10)
+    return render_template('task1.html', title='Задачи на теорию вероятностей', tasks=tasks)
 
 
 @app.route('/task11')

@@ -1,5 +1,17 @@
 {% extends "base.html" %}
-{%block title%}Геометрия на плоскости{%endblock%}
+<title>Геометрия на плоскости</title>
 {% block content %}
-
+    {% for item in tasks %}
+        <div class="dropdown" >
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ item.task }}
+            {% if item.img != "-" %}
+                <img src="task/{{item.n_t}}/{{item.img}}.png">
+            {% endif %}
+        </button>
+        <ul class="dropdown-menu">
+            <li>{{ item.answ }}</li>
+        </ul>
+        </div>
+    {% endfor %}
 {% endblock %}
