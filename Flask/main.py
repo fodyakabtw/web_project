@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect, request, make_response, session, abort
+from flask import Flask, render_template, redirect
 from data import db_session
 from data.users import User
 from data.tasks import Tasks
 from forms.user import RegisterForm, LoginForm
 import datetime as dt
-from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_login import LoginManager, login_user
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -27,12 +27,13 @@ def register():
             return render_template('register.html', title="Регистрация", form=form, message='Пароли разные!')
         db_sess = db_session.create_session()
         if db_sess.query(User).filter(User.email == form.email.data).first():
-            return render_template('register.html', title='Регистрация', form=form, message="Пользователь уже существует")
+            return render_template('register.html', title='Регистрация', form=form,
+                                   message="Пользователь уже существует")
         user = User(
             name=form.name.data,
             email=form.email.data,
             about=form.about.data,
-            )
+        )
         user.set_password(form.password.data)
         db_sess.add(user)
         db_sess.commit()
